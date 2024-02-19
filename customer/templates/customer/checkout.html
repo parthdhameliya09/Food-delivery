@@ -1,0 +1,567 @@
+{% extends 'customer/base.html' %} {% block content %}
+{% load static %}
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  #main {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  #content2 {
+    width: 100%;
+    margin-top: 5vw;
+    /* background-color: #660eca; */
+  }
+  #content2_1 {
+    height: auto;
+    width: 100%;
+    padding: 50px;
+    background-color: #edebe9;
+  }
+  #content2_1 > h1 {
+    margin: -20px 0 0 0; /*top right bottom left*/
+    /* padding: 0.5vw 0; */
+    font-size: 1.8vw;
+    font-weight: 600;
+  }
+  #content2_2 {
+    /* background-color: #660eca; */
+    width: 100%;
+    height: 100%;
+    padding: 0 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .content21 {
+    width: 31%;
+    height: 80%;
+    padding: 20px;
+    font-size: 12px;
+    border: 2px solid #c2bdbdc1;
+    box-shadow: 2px 2px 10px #c2bdbdc1;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  #b1 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 65%;
+    /* background-color: #dadada; */
+    gap: 0.3vw;
+    margin-bottom: 0.6vw;
+  }
+  #b2 {
+    width: 80px;
+    height: 80px;
+    /* background-color: #e5c4c4; */
+  }
+
+  .content21 #b2 img {
+    width: 100%;
+    height: 100%;
+    /* padding: 0.3vw; */
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  #b3 h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 15px;
+  }
+  #b3 h6 {
+    font-size: 11px;
+    font-weight: 300;
+    margin: 15px;
+  }
+</style>
+
+<!--   Best Sellers    -->
+<div id="content2">
+  <div id="content2_1">
+    <h1 style="margin-left: 20px">Best Sellers</h1>
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Burger.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Whopper Jr</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 150.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/DoubleMargherita.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Double Margherita</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 360.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/beverages.webp" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Strawberry Milkshake</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 270.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/desserts.webp" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Almond Fudge Ice-cream</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 170.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/sides.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>French Fries</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 120.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!--   Burger    -->
+<div id="content2">
+  <div id="content2_1">
+    <h1 style="margin-left: 20px">Burger</h1>
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Burger3.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Crispy Veg Burger</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 70.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Burger2.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Veg Makhani Burst</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 90.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Burger.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Whopper Jr</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 150.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Burger4.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Masala Whopper Veg</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 220.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Burger5.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Veggie Cheese Burger</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 170.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<!--   Pizza    -->
+<div id="content2">
+  <div id="content2_1">
+    <h1 style="margin-left: 20px">Pizza</h1>
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/DoubleMargherita.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Double Margherita</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 360.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/PeppyPaneer.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Peppy Paneer</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 350.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/MexicanGreen.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Mexican Green</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 320.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Farmhouse.png" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Farm house</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 430.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/CheeseCorn.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Cheese n Corn</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 180.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/VeggieParadise.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Veggie Paradise</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 450.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Freshveggie.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Fresh Veggie</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 350.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/TandooriPaneer.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Tandoori Paneer</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 550.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/VegExtraVaganza.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Veg Extra Vaganza</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 550.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<!--   Beverages    -->
+<div id="content2">
+  <div id="content2_1">
+    <h1 style="margin-left: 20px">Beverages</h1>
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/beverages.webp" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Java Chip Frappuccino</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 270.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Cappuccino.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Cappuccino</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 220.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/Cold-coffee.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Cold coffee</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 250.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!--   Desserts    -->
+<div id="content2">
+  <div id="content2_1">
+    <h1 style="margin-left: 20px">Desserts</h1>
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/desserts.webp" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Almond Fudge Ice-cream</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 170.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/lavacake.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Choco Lava Cake</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 100.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!--   Sides    -->
+<div id="content2">
+  <div id="content2_1">
+    <h1 style="margin-left: 20px">Sides</h1>
+      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/sides.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>French Fries</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 120.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/HerbyGarlicDip.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Herby Garlic Dip</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 23.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21" style="width: 380;">
+          <div id="b1">
+            <div id="b2">
+              <img src="/static/images/EasyCheesyDip.jpg" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Easy Cheesy Dip</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>₹ 30.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock content %}

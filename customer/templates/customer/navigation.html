@@ -1,0 +1,90 @@
+{% load static %}
+<!----------  HEADER-START  ---------->
+<div class="nav_cont">
+  <div id="nav">
+    <div id="nav_part_1">
+      <img src="{% static 'images/Logo1.png' %}" alt="" style="width: 50px; height: 52px"/>
+      <nav class="nav">
+        <ul class="nav_list">
+          <li class="nav-item" id="home">
+            <a href="/" class="active">Home</a>
+          </li>
+          <li class="nav-item" id="about">
+            <a href="/">Offer</a>
+          </li>
+          <li class="nav-item" id="services">
+            <a href="/order">Order</a>
+          </li>
+          <li class="nav-item" id="contact">
+            <a href="#">Pay</a>
+          </li>
+          <li class="nav-item" id="contact">
+            <a href="#">Store</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="nav_part_2">
+      <div class="form-group fg--search">
+        <input
+          type="text"
+          placeholder=" &#160;looking for something specific?"
+        />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="center">
+        <button id="show-login" onclick="toggle()">
+          <i class="fa-solid fa-user fa-2xl"></i>
+        </button>
+      </div>
+
+      <!-- LOGIN-FORM START -->
+      <form action="#">
+        <div class="popup">
+          <div class="close-btn" onclick="toggle()">&times;</div>
+          <div class="form">
+            <h2>Login</h2>
+            <div class="form-element">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                placeholder="Enter email"
+                pattern=".+@gmail\.com"
+                required
+              />
+            </div>
+            <div class="form-element">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                minlength="8"
+                maxlength="12"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+            <div class="form-element">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+            </div>
+            <div class="form-element">
+              <button>Sign in</button>
+            </div>
+            <div class="form-element">
+              <a href="#">Register</a>
+            </div>
+            <div class="form-element">
+              <a href="#">Forgot password?</a>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- LOGIN-FORM END -->
+    </div>
+  </div>
+  home offer order pay store
+</div>
+
+<!---------- HEADER-END ---------->

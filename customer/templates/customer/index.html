@@ -1,0 +1,272 @@
+{% extends 'customer/base.html' %} {% block content %}
+{% load static %}
+
+<!---------- MAIN-START ---------->
+<div id="main">
+  <div id="heading">
+    <h5>Rewards are pouring! Keep visiting.</h5>
+    <button><a href="rewards.html"> Know More </a></button>
+  </div>
+  <div id="content">
+    <div id="content_part_1">
+      <h1 style="font-weight: 700">Handcrafted Curations</h1>
+      <div id="part1_1">
+        <div class="img1">
+          <img src="{% static 'images/Bestseller.png' %}" alt="" />
+          <h5>Bestseller</h5>
+        </div>
+        <div class="img1">
+          <img src="{% static 'images/Burger.jpg' %}" alt="" />
+          <h5>Burger</h5>
+        </div>
+        <div class="img1">
+          <img src="{% static 'images/pizzas.webp' %}" alt="" />
+          <h5>Pizza</h5>
+        </div>
+        <div class="img1">
+          <img src="{% static 'images/beverages.webp' %}" alt="" />
+          <h5>Beverages</h5>
+        </div>
+        <div class="img1">
+          <img src="{% static 'images/desserts.webp' %}" alt="" />
+          <h5>Desserts</h5>
+        </div>
+        <div class="img1">
+          <img src="{% static 'images/sides.jpg' %}" alt="" style="object-fit: cover" />
+          <h5>Sides</h5>
+        </div>
+      </div>
+    </div>
+    <div id="content_part_2">
+      <div id="part2_1">
+        <img src="{% static 'images/1_border.png' %}" alt="" />
+        <img src="{% static 'images/2_border.png' %}" alt="" />
+        <img src="{% static 'images/3_border.png' %}" alt="" />
+        <img src="{% static 'images/4_border.png' %}" alt="" />
+        <img src="{% static 'images/5_border.png' %}" alt="" />
+      </div>
+    </div>
+    <div id="content_part_3">
+      <h1>Latest Offerings</h1>
+      <div id="part3" class="slick-slider">
+        <div class="part3_1">
+          <img
+            src="https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Large/webP/104014.webp"
+            alt=""
+          />
+          <div class="part31">
+            <h2>Mocha Cookie Crumble Latte</h2>
+            <h6>SHORT(Short Mocha Cookie Crumble)</h6>
+            <p>
+              Our Mocha Cookie Crumble Latte is a delicious flavoured mocha
+              indulgence - Hot Coffe meets chocolate and combination.
+            </p>
+            <div class="part32">
+              <h6>&#8377; 414.75</h6>
+              <button>Add item</button>
+            </div>
+          </div>
+        </div>
+        <div class="part3_1">
+          <img
+            src="https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Large/webP/104008.webp"
+            alt=""
+          />
+          <div class="part31">
+            <h2>Mocha Cookie Crumble Frappuccino</h2>
+            <h6>SHORT(Short Mocha Cookie Crumble)</h6>
+            <p>
+              A perfect blend of coffee, vanila flovour, milk and cocoa powder ,
+              Finished with delicious chocolate whipped .
+            </p>
+            <div class="part32">
+              <h6>&#8377; 483.00</h6>
+              <button>Add item</button>
+            </div>
+          </div>
+        </div>
+        <div class="part3_1">
+          <img
+            src="https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Large/webP/104018.webp"
+            alt=""
+          />
+          <div class="part31">
+            <h2>Iced Mocha Cookie Crumble</h2>
+            <h6>SHORT(Short Mocha Cookie Crumble)</h6>
+            <p>
+              A mix of cocoa powder, vanilla flavour and espresso shot served on
+              milk and ice, topped with delicious..
+            </p>
+            <div class="part32">
+              <h6>&#8377; 446.25</h6>
+              <button>Add item</button>
+            </div>
+          </div>
+        </div>
+        <div class="part3_1">
+          <img
+            src="https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Large/webP/104014.webp"
+            alt=""
+          />
+          <div class="part31">
+            <h2>Mocha Cookie Crumble Latte</h2>
+            <h6>SHORT(Short Mocha Cookie Crumble)</h6>
+            <p>
+              Our Mocha Cookie Crumble Latte is a delicious flavoured mocha
+              indulgence - Hot Coffe meets chocolate and combination.
+            </p>
+            <div class="part32">
+              <h6>&#8377; 414.75</h6>
+              <button>Add item</button>
+            </div>
+          </div>
+        </div>
+        <div class="part3_1">
+          <img
+            src="https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Large/webP/104008.webp"
+            alt=""
+          />
+          <div class="part31">
+            <h2>Mocha Cookie Crumble Frappuccino</h2>
+            <h6>SHORT(Short Mocha Cookie Crumble)</h6>
+            <p>
+              A perfect blend of coffee, vanila flovour, milk and cocoa powder ,
+              Finished with delicious chocolate whipped .
+            </p>
+            <div class="part32">
+              <h6>&#8377; 483.00</h6>
+              <button>Add item</button>
+            </div>
+          </div>
+        </div>
+        <div class="part3_1">
+          <img
+            src="https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Large/webP/104018.webp"
+            alt=""
+          />
+          <div class="part31">
+            <h2>Iced Mocha Cookie Crumble</h2>
+            <h6>SHORT(Short Mocha Cookie Crumble)</h6>
+            <p>
+              A mix of cocoa powder, vanilla flavour and espresso shot served on
+              milk and ice, topped with delicious..
+            </p>
+            <div class="part32">
+              <h6>&#8377; 446.25</h6>
+              <button>Add item</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content2">
+    <div id="content2_1">
+      <h1 style="margin-left: 20px">Best Sellers</h1>
+      <div id="content2_2">
+        <div class="content21">
+          <div id="b1">
+            <div id="b2">
+              <img src="{% static 'images/pizzas.webp' %}" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Bhuna Chicken Puff</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>&#8377; 414.75</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21">
+          <div id="b1">
+            <div id="b2">
+              <img src="{% static 'images/beverages.webp' %}" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Three Dip Nochos</h3>
+              <h6>PER SERVE (85 g) -513 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>&#8377; 253.00</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <div class="content21">
+          <div id="b1">
+            <div id="b2">
+              <img src="{% static 'images/Burger.jpg' %}" alt="" />
+            </div>
+            <div id="b3">
+              <h3>Strawberry Milkshake</h3>
+              <h6>PER SERVE (85 g) -390 Kcal</h6>
+            </div>
+          </div>
+          <div class="part32">
+            <h6>&#8377; 288.75</h6>
+            <button>Add item</button>
+          </div>
+        </div>
+        <!-- <div class="content21">
+                <div id="b1">
+                    <div id="b2">
+                        <img src="images/desserts.webp" alt="">
+                    </div>
+                    <div id="b3">
+                    <h3>Bhuna Chicken Puff</h3>
+                    <h6>PER SERVE (85 g) -390 Kcal</h6>
+                    </div>
+                </div>
+                <div class="part32">
+                    <h6>&#8377;  414.75</h6>
+                    <button>Add item</button>
+                </div>
+            </div>
+            <div class="content21">
+                <div id="b1">
+                    <div id="b2">
+                        <img src="images/pizzas.webp" alt="">
+                    </div>
+                    <div id="b3">
+                    <h3>Three Dip Nochos</h3>
+                    <h6>PER SERVE (85 g) -513 Kcal</h6>
+                    </div>
+                </div>
+                <div class="part32">
+                    <h6>&#8377;  253.00</h6>
+                    <button>Add item</button>
+                </div>
+            </div>
+            <div class="content21">
+                <div id="b1">
+                    <div id="b2">
+                        <img src="images/sides.jpg" alt="">
+                    </div>
+                    <div id="b3">
+                    <h3>Strawberry Milkshake </h3>
+                    <h6>PER SERVE (85 g) -390 Kcal</h6>
+                    </div>
+                </div>
+                <div class="part32">
+                    <h6>&#8377;  288.75</h6>
+                    <button>Add item</button>
+                </div>
+            </div> -->
+      </div>
+    </div>
+
+    <div id="content3">
+      <h1>Learn more about the world of Food!</h1>
+      <div id="image">
+        <a href="franchise.html"
+          ><img src="{% static 'images/Franchise_inquiry.jpg' %}" alt=""
+        /></a>
+      </div>
+    </div>
+  </div>
+  <!----------  MAIN-END  ---------->
+</div>
+{% endblock content %}
