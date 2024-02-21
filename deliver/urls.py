@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('restaurant/', include('restaurant.urls')),
+    path('deliveryman/', include('deliveryman.urls')),
     path('',Index.as_view(), name='index'),
     path('about/', About.as_view(), name='about'),
     path('menu/', Menu.as_view(), name='menu'),

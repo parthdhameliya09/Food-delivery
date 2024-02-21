@@ -484,7 +484,7 @@ body {
   justify-content: space-between;
 }
 .content21 {
-  width: 31%;
+  /* width: 31%; */
   height: 80%;
   padding: 20px;
   font-size: 12px;

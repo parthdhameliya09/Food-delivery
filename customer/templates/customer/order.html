@@ -48,8 +48,8 @@
     justify-content: space-between;
   }
   .content21 {
-    width: 31%;
-    height: 80%;
+    {% comment %} width: 31%; {% endcomment %}
+    height: 90%;
     padding: 20px;
     font-size: 12px;
     border: 2px solid #c2bdbdc1;
@@ -91,13 +91,44 @@
   }
 </style>
 
+<nav class="navbar navbar-inverse bg-inverse mt-5 pt-5" style="top: 40px;">
+  <div class="row" style="margin-right: 0; margin-left: auto;">
+      <div class="col" style="margin-bottom: 30px;">
+        <button type="button" class="btn btn-primary" style="height:100%;" data-toggle="modal" data-target="#cart">Cart ( <span class="total-count"></span> )</button><button class="clear-cart btn btn-danger" style="height:100%; margin-left: 15px">Clear Cart</button></div>
+  </div>
+</nav>
+
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="font-size: 15px;padding: 0 6px;">X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+          
+        </table>
+        <div>Total price: ₹ <span class="total-cart"></span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Order now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--   Best Sellers    -->
 <div id="content2">
-  <div id="content2_1">
+  <div id="content2_1" style="margin-top: -30px;">
     {% csrf_token %}
     <h1 style="margin-left: 20px">Best Sellers</h1>
+    <div class="row mt-3">
     {% for Bestseller in Bestseller %}
-      <div id="content2_2 mt-5" style="gap: 2vw; margin: 10px 0;">
+      <div id="content2_2 mt-5" class="col-md-4">
         <div class="content21" style="width: 380;">
           <div id="b1">
             <div id="b2">
@@ -110,11 +141,12 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Bestseller.price }}</h6>
-            <button>Add item</button>
+            <a href="#" data-name="{{ Bestseller.name }}" data-price="{{ Bestseller.price }}" class="add-to-cart btn btn-success">Add Item</a>
           </div>
         </div>
       </div>
     {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -122,9 +154,10 @@
 <div id="content2">
   <div id="content2_1">
     <h1 style="margin-left: 20px">Burger</h1>
+    <div class="row mt-3">
     {% for Burger in Burger %}
-      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
-        <div class="content21" style="width: 380;">
+      <div id="content2_2 mt-5" class="col-md-4">
+        <div class="content21">
           <div id="b1">
             <div id="b2">
               <img src="{{ Burger.image.url }}" alt="" />
@@ -136,11 +169,12 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Burger.price }}</h6>
-            <button>Add item</button>
+            <a href="#" data-name="{{ Burger.name }}" data-price="{{ Burger.price }}" class="add-to-cart btn btn-success">Add Item</a>
           </div>
         </div>
       </div>
     {% endfor %}
+    </div>
     </div>
 </div>
 
@@ -148,8 +182,9 @@
 <div id="content2">
   <div id="content2_1">
     <h1 style="margin-left: 20px">Pizza</h1>
+    <div class="row mt-3">
     {% for Pizza in Pizza %}
-      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+      <div id="content2_2 mt-5" class="col-md-4">
         <div class="content21" style="width: 380;">
           <div id="b1">
             <div id="b2">
@@ -162,11 +197,12 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Pizza.price }}</h6>
-            <button>Add item</button>
+            <a href="#" data-name="{{ Pizza.name }}" data-price="{{ Pizza.price }}" class="add-to-cart btn btn-success">Add Item</a>
           </div>
         </div>
       </div>
-    {% endfor %}
+     {% endfor %}
+     </div>
     </div>
 </div>
 
@@ -174,8 +210,9 @@
 <div id="content2">
   <div id="content2_1">
     <h1 style="margin-left: 20px">Beverages</h1>
+    <div class="row mt-3">
     {% for Beverages in Beverages %}
-      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+      <div id="content2_2 mt-5" class="col-md-4">
         <div class="content21" style="width: 380;">
           <div id="b1">
             <div id="b2">
@@ -188,20 +225,22 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Beverages.price }}</h6>
-            <button>Add item</button>
+            <a href="#" data-name="{{ Beverages.name }}" data-price="{{ Beverages.price }}" class="add-to-cart btn btn-success">Add Item</a>
           </div>
         </div>
       </div>
     {% endfor %}
     </div>
+    </div>
 </div>
 
-<!--   Desserts    -->
+<!--   Dessert    -->
 <div id="content2">
   <div id="content2_1">
     <h1 style="margin-left: 20px">Desserts</h1>
+    <div class="row mt-3">
     {% for Dessert in Dessert %}
-      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+      <div id="content2_2 mt-5" class="col-md-4">
         <div class="content21" style="width: 380;">
           <div id="b1">
             <div id="b2">
@@ -214,11 +253,12 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Dessert.price }}</h6>
-            <button>Add item</button>
+            <a href="#" data-name="{{ Dessert.name }}" data-price="{{ Dessert.price }}" class="add-to-cart btn btn-success">Add Item</a>
           </div>
         </div>
       </div>
     {% endfor %}
+    </div>
     </div>
 </div>
 
@@ -226,8 +266,9 @@
 <div id="content2">
   <div id="content2_1">
     <h1 style="margin-left: 20px">Sides</h1>
+    <div class="row mt-3">
     {% for Sides in Sides %}
-      <div id="content2_2 mt-5" style="display: flex; gap: 2vw; margin: 10px; 0">
+      <div id="content2_2 mt-5" class="col-md-4">
         <div class="content21" style="width: 380;">
           <div id="b1">
             <div id="b2">
@@ -240,13 +281,15 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Sides.price }}</h6>
-            <button>Add item</button>
+            <a href="#" data-name="{{ Sides.name }}" data-price="{{ Sides.price }}" class="add-to-cart btn btn-success">Add Item</a>
           </div>
         </div>
       </div>
     {% endfor %}
     </div>
+    </div>
 </div>
+
 {% endblock content %}
 
 
