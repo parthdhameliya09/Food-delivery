@@ -1,0 +1,203 @@
+{% extends 'customer/base2.html' %}
+
+{% block content %}
+<div class="container m-5 p-5">
+    <h4>Recent Orders</h4>
+    <div class="my-5 p-5 bg-body-primary rounded shadow-sm" style="background: #f1f1f1;display: flex;justify-content: space-between;">
+        <div>
+            <p><strong class="d-block text-gray-dark">Order ID : #003</strong></p>
+            <p><strong class="d-block text-gray-dark">Order Placed : Mar 19,2024</strong></p>
+            <p><strong class="d-block text-gray-dark">Total : ₹ 1140.00</strong></p>
+        </div>
+        <div style="margin: 35px;">
+            <td><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal"></i></td>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Order details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="padding: 6px;">X</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container" style="font-size: 12px;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 text-center mt-3">
+                            <h4>Order ID: #0003{{ order.pk }}</h4>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mt-5">
+                            <h6>Customer Information: </h6>
+                        </div>
+                    </div>
+                
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 mt-2">
+                            <p><span style="font-weight: 400;">Name : </span>John Doe{{ order.name }}</p>
+                            <p><span style="font-weight: 400;">Email : johndoe@gmail.com</span>{{ order.email }}</p>
+                            <h6 class="pt-3 mt-5 mb-4">Address Information : </h6>
+                            <p><span style="font-weight: 400;">Street : </span>26, Suryam Flora{{ order.street }}</p>
+                            <p><span style="font-weight: 400;">City : </span>Ahmedabad{{ order.city }}</p>
+                            <p><span style="font-weight: 400;">State : </span>Gujarat{{ order.state }}</p>
+                            <p><span style="font-weight: 400;">Zip Code : </span>380015{{ order.zip_code }}</p>
+                        </div>
+                
+                        <div class="col-md-6 col-sm-12">
+                            <h6><b>Order Info:</b></h6>
+                            <p><span style="font-weight: 400;">Whopper Jr : 1 </span></p>
+                            <p><span style="font-weight: 400;">Double Margherita : 1</span></p>
+                            <p><span style="font-weight: 400;">Cheese n Corn : 2</span></p>
+                            <p><span style="font-weight: 400;">Java Chip Frappuccino : 1</span></p>
+                            <p class="mt-5"><span style="font-weight: 400;"><b>Total : </span>₹ 1140{{ order.price }}</p></b>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" onclick="location.href='http://127.0.0.1:8000/payment-confirmation/'">Invoice</button>
+                  {% comment %} <button type="submit" class="btn btn-primary">Save changes</button> {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="my-5 p-5 bg-body-primary rounded shadow-sm" style="background: #f1f1f1;display: flex;justify-content: space-between;">
+        <div>
+            <p><strong class="d-block text-gray-dark">Order ID : #002</strong></p>
+            <p><strong class="d-block text-gray-dark">Order Placed : Mar 08,2024</strong></p>
+            <p><strong class="d-block text-gray-dark">Total : ₹ 950.00</strong></p>
+        </div>
+        <div style="margin: 35px;">
+            <td><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal2"></i></td>
+        </div>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModal2Label">Order details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="padding: 6px;">X</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container" style="font-size: 12px;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 text-center mt-3">
+                            <h4>Order ID: #0002{{ order.pk }}</h4>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mt-5">
+                            <h6>Customer Information: </h6>
+                        </div>
+                    </div>
+                
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 mt-2">
+                            <p><span style="font-weight: 400;">Name : </span>John Doe{{ order.name }}</p>
+                            <p><span style="font-weight: 400;">Email : johndoe@gmail.com</span>{{ order.email }}</p>
+                            <h6 class="pt-3 mt-5 mb-4">Address Information : </h6>
+                            <p><span style="font-weight: 400;">Street : </span>26, Suryam Flora{{ order.street }}</p>
+                            <p><span style="font-weight: 400;">City : </span>Ahmedabad{{ order.city }}</p>
+                            <p><span style="font-weight: 400;">State : </span>Gujarat{{ order.state }}</p>
+                            <p><span style="font-weight: 400;">Zip Code : </span>380015{{ order.zip_code }}</p>
+                        </div>
+                
+                        <div class="col-md-6 col-sm-12">
+                            <h6><b>Order Info:</b></h6>
+                            <p><span style="font-weight: 400;">Whopper Jr : 1 </span></p>
+                            <p><span style="font-weight: 400;">Double Margherita : 1</span></p>
+                            <p><span style="font-weight: 400;">Java Chip Frappuccino : 1</span></p>
+                            <p><span style="font-weight: 400;">Almond Fudge Ice-cream : 1</span></p>
+                            <p class="mt-5"><span style="font-weight: 400;"><b>Total : </span>₹ 950{{ order.price }}</p></b>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" onclick="location.href='http://127.0.0.1:8000/payment-confirmation/'">Invoice</button>
+                  {% comment %} <button type="submit" class="btn btn-primary">Save changes</button> {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="my-5 p-5 bg-body-primary rounded shadow-sm" style="background: #f1f1f1;display: flex;justify-content: space-between;">
+        <div>
+            <p><strong class="d-block text-gray-dark">Order ID : #001</strong></p>
+            <p><strong class="d-block text-gray-dark">Order Placed : Feb 21,2024</strong></p>
+            <p><strong class="d-block text-gray-dark">Total : ₹ 820.00</strong></p>
+        </div>
+        <div style="margin: 35px;">
+            <td><i class="fas fa-edit" data-toggle="modal" data-target="#exampleModal3"></i></td>
+        </div>
+        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModal3Label">Order details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="padding: 6px;">X</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container" style="font-size: 12px;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 text-center mt-3">
+                            <h4>Order ID: #0001{{ order.pk }}</h4>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mt-5">
+                            <h6>Customer Information: </h6>
+                        </div>
+                    </div>
+                
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-sm-12 mt-2">
+                            <p><span style="font-weight: 400;">Name : </span>John Doe{{ order.name }}</p>
+                            <p><span style="font-weight: 400;">Email : johndoe@gmail.com</span>{{ order.email }}</p>
+                            <h6 class="pt-3 mt-5 mb-4">Address Information : </h6>
+                            <p><span style="font-weight: 400;">Street : </span>26, Suryam Flora{{ order.street }}</p>
+                            <p><span style="font-weight: 400;">City : </span>Ahmedabad{{ order.city }}</p>
+                            <p><span style="font-weight: 400;">State : </span>Gujarat{{ order.state }}</p>
+                            <p><span style="font-weight: 400;">Zip Code : </span>380015{{ order.zip_code }}</p>
+                        </div>
+                
+                        <div class="col-md-6 col-sm-12">
+                            <h6><b>Order Info:</b></h6>
+                            <p><span style="font-weight: 400;">Cheese n Corn : 2 </span></p>
+                            <p><span style="font-weight: 400;">Cappuccino : 1</span></p>
+                            <p><span style="font-weight: 400;">French Fries : 2</span></p>
+                            <p class="mt-5"><span style="font-weight: 400;"><b>Total : </span>₹ 820{{ order.price }}</p></b>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" onclick="location.href='http://127.0.0.1:8000/payment-confirmation/'">Invoice</button>
+                  {% comment %} <button type="submit" class="btn btn-primary">Save changes</button> {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+        <small class="d-block text-end mt-3">
+          <a href="/">Back to Home</a>
+        </small>
+</div>
+
+{% endblock content %}

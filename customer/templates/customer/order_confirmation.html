@@ -1,4 +1,5 @@
 {% extends 'customer/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-5 pt-5 mb-5">
@@ -14,23 +15,65 @@
         <div class="col-md-5 col-sm-12 text-center">
             <h3 class="pb-3">Order Summary:</h3>
             {% for item in items.all %}
-                <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+                <p>{{ item.name }} : <span class="pl-3"> ₹ {{ item.price }}</span></p>
             {% endfor %}
 
-            <b><p class="font-weight-bold pt-4">Total: {{ price }}</p></b>
+            <b><p class="font-weight-bold pt-4">Total : ₹ {{ price }}</p></b>
         </div>
     </div>
+    <form action="https://www.example.com/payment/success/" method="POST">
     <div class="row justify-content-center pb-2 pt-5">
         <div class="col-md-6 text-center">
             <h3>Pay now or Pay with Cash At Delivery</h3>
         </div>
     </div>
+    {% comment %} <button id="rzp-button1" style="font-size: 15px;margin-left: 460px;padding: 10px 100px;margin-bottom: 20px;">Pay Now with Razorpay</button> {% endcomment %}
+    <div style="margin-left: 510px;" class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_Ndp8i6aFWE8pJv/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
+        <script>
+          (function(){
+            var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
+            if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
+            s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
+            rzp && rzp.init && rzp.init()}})();
+        </script>
+      </div>
+          
     <div class="row justify-content-center pb-5">
         <div class="col-md-6 text-center">
             <div id="paypal-button"></div>
         </div>
     </div>
 </div>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js" data-amount="{{ amount }}"></script>
+<script>
+var options = {
+    "key": "rzp_test_Lq0WdpfE9BUb0t", // Enter the Key ID generated from the Dashboard
+    "name": "Meal Scout", //your business name
+    "description": "Test Transaction",
+    "image": "{% static 'images/Logo1.png' %}",
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        // "name": "Gaurav Kumar", //your customer's name
+        // "email": "gaurav.kumar@example.com",
+        // "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</form>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
@@ -75,7 +118,7 @@
         transactions: [{
           amount: {
             total: {{ price }},
-            currency: 'INR'
+            currency: 'USD'
           }
         }]
       });

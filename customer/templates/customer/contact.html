@@ -1,0 +1,72 @@
+{% extends 'customer/base1.html' %} {% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/style_1.css' %}">
+    <title>Contact Us</title>
+    <script defer="" referrerpolicy="origin" src="{% static 'js/s.js' %}"></script><script nonce="5f5472c1-200e-4125-b45f-3c201db362f5">try{(function(w,d){!function(o,p,q,r){o[q]=o[q]||{};o[q].executed=[];o.zaraz={deferred:[],listeners:[]};o.zaraz.q=[];o.zaraz._f=function(s){return async function(){var t=Array.prototype.slice.call(arguments);o.zaraz.q.push({m:s,a:t})}};for(const u of["track","set","debug"])o.zaraz[u]=o.zaraz._f(u);o.zaraz.init=()=>{var v=p.getElementsByTagName(r)[0],w=p.createElement(r),x=p.getElementsByTagName("title")[0];x&&(o[q].t=p.getElementsByTagName("title")[0].text);o[q].x=Math.random();o[q].w=o.screen.width;o[q].h=o.screen.height;o[q].j=o.innerHeight;o[q].e=o.innerWidth;o[q].l=o.location.href;o[q].r=p.referrer;o[q].k=o.screen.colorDepth;o[q].n=p.characterSet;o[q].o=(new Date).getTimezoneOffset();if(o.dataLayer)for(const B of Object.entries(Object.entries(dataLayer).reduce(((C,D)=>({...C[1],...D[1]})),{})))zaraz.set(B[0],B[1],{scope:"page"});o[q].q=[];for(;o.zaraz.q.length;){const E=o.zaraz.q.shift();o[q].q.push(E)}w.defer=!0;for(const F of[localStorage,sessionStorage])Object.keys(F||{}).filter((H=>H.startsWith("_zaraz_"))).forEach((G=>{try{o[q]["z_"+G.slice(7)]=JSON.parse(F.getItem(G))}catch{o[q]["z_"+G.slice(7)]=F.getItem(G)}}));w.referrerPolicy="origin";w.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(o[q])));v.parentNode.insertBefore(w,v)};["complete","interactive"].includes(p.readyState)?zaraz.init():o.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script>
+</head>
+<body>
+    <div class="content">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-10">
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+        <h3 class="heading mb-4">Let's talk about everything!</h3>
+        <p>WE WOULD LOVE TO HEAR FROM YOU.!</p>
+        <p><img src="{% static 'images/undraw-contact.svg' %}" alt="Image" class="img-fluid"></p>
+    </div>
+    <div class="col-md-6">
+        <form class="mb-5 p-5" method="post" action="{% url 'contact' %}" id="contact">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <div class="col-md-12 form-group">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12 form-group">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12 form-group">
+                <textarea class="form-control" name="description" id="description" cols="30" rows="7" placeholder="Write your message"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+                <span class="submitting"></span>
+                </div>
+            </div>
+        </form>
+        <div id="form-message-warning mt-4"></div>
+            <div id="form-message-success">
+            Your message was sent, thank you!
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" data-cf-beacon="{" rayid":"866665723cda6691","version":"2024.2.4","token":"cd0b4b3a733644fc843ef0b185f98241"}"="" crossorigin="anonymous"></script>
+    
+</body>
+</html>
+{% endblock content %}

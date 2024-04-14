@@ -1,0 +1,86 @@
+{% extends "restaurant/base.html" %}
+{% block content %}
+<h1>Add Product</h1>
+<div class="container mt-5">
+    <div class="col-md-8 m-5 p-5">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group m-5">
+          <label for="" class="form-label">Name</label>
+          <input type="text" class="form-control" Required name="name">
+        </div>
+        <div class="form-group m-5">
+          <label for="" class="form-label">Description</label>
+          <textarea class="form-control" rows="3" Required name="description"></textarea>
+        </div>
+        <div class="form-group m-5">
+            <label for="" class="form-label">Image</label>
+            <input type="file" class="form-control" name="image">
+        </div>
+        <div class="form-group m-5">
+            <label for="" class="form-label">Price</label>
+            <input type="text" class="form-control" Required name="price">
+        </div>
+        <div class="form-group m-5">
+          <label for="" class="form-label">Category</label>
+          <input type="text" class="form-control" Required name="category">
+        </div>
+        <div class="form-group m-5">
+          <label for="" class="form-label">Stock</label>
+          <input type="text" class="form-control" Required name="stock">
+        </div>
+        <input type="submit" class="btn btn-success m-5" value="Add">
+    </form>
+    </div>
+
+    <div class="col-sm-8">
+        <h1 class="text-center alert alert-info">Show Product Info</h1>
+        {% if pro %}
+        <h4>Table Data</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product ID</th>
+                <th scope="col">Price</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Category</th>
+                <th scope="col">Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for p in pro %}
+            <tr>
+                <td>{{ p.id }}</td>
+                {% if p.image %}
+                <td>
+                  <img src="{{ p.image.url }}" style="width:50px;height:50px;border-radius:50px"/>
+                  <p style="margin:10px">{{ p.name }}</p>
+                </td>
+                {% else %}
+                  {% comment %} <img src="{{ p.image }}" /> {% endcomment %}
+                  <p>{{ p.name }}</p>
+                {% endif %}
+                <td># {{ p.id }}</td>
+                <td>{{ p.price }}</td>
+                <td>26</td>
+                <td>Burger</td>
+                <td>
+                <a href="{% url 'updatedata' p.id %}" class="btn btn-warning btn-sm">Edit</a>
+                {% comment %} <a href="{% url 'deletedata' p.id %}" class="btn btn-danger btn-sm">Delete</a> {% endcomment %}
+                <form action="{% url 'deletedata' p.id %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h4 class="text-center alert alert-danger">No records</h4>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

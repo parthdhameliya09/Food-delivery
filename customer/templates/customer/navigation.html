@@ -1,4 +1,40 @@
 {% load static %}
+<style>
+  .dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
 <!----------  HEADER-START  ---------->
 <div class="nav_cont">
   <div id="nav">
@@ -10,10 +46,10 @@
             <a href="/" class="active">Home</a>
           </li>
           <li class="nav-item" id="about">
-            <a href="/">Offer</a>
+            <a href="#">Offer</a>
           </li>
           <li class="nav-item" id="services">
-            <a href="/order">Order</a>
+            <a href="#">Order</a>
           </li>
           <li class="nav-item" id="contact">
             <a href="#">Pay</a>
@@ -32,13 +68,19 @@
         />
         <button type="submit"><i class="fa fa-search"></i></button>
       </div>
-      <div class="center">
-        <button id="show-login" onclick="toggle()">
+      <div class="dropdown center">
+        <button id="dropbtn"> {% comment "" %} onclick="toggle()" {% endcomment %}
           <i class="fa-solid fa-user fa-2xl"></i>
         </button>
+        <div class="dropdown-content">
+          <a href="/signup">Register</a>
+          <a href="/login">Login</a>
+          <a href="/contact">Contact Us</a>
+        </div>
       </div>
+    </div>
 
-      <!-- LOGIN-FORM START -->
+      {% comment %} <!-- LOGIN-FORM START -->
       <form action="#">
         <div class="popup">
           <div class="close-btn" onclick="toggle()">&times;</div>
@@ -81,7 +123,7 @@
           </div>
         </div>
       </form>
-      <!-- LOGIN-FORM END -->
+      <!-- LOGIN-FORM END --> {% endcomment %}
     </div>
   </div>
   home offer order pay store

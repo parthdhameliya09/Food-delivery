@@ -1,5 +1,6 @@
 {% extends 'customer/base.html' %} {% block content %}
 {% load static %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <style>
   * {
     margin: 0;
@@ -21,15 +22,19 @@
     width: 100%;
     position: relative;
   }
+  .nav-item .active {
+    font-weight: 600;
+    border-bottom: 3px solid #00754a;
+  }
   #content2 {
     width: 100%;
-    margin-top: 5vw;
+    {% comment %} margin-top: 5vw; {% endcomment %}
     /* background-color: #660eca; */
   }
   #content2_1 {
     height: auto;
     width: 100%;
-    padding: 50px;
+    {% comment %} padding: 50px; {% endcomment %}
     background-color: #edebe9;
   }
   #content2_1 > h1 {
@@ -91,6 +96,9 @@
   }
 </style>
 
+<form method="post"></form>
+{% csrf_token %}
+
 <nav class="navbar navbar-inverse bg-inverse mt-5 pt-5" style="top: 40px;">
   <div class="row" style="margin-right: 0; margin-left: auto;">
       <div class="col" style="margin-bottom: 30px;">
@@ -98,6 +106,7 @@
   </div>
 </nav>
 
+<form action="{% url 'order' %}" method="post"></form>
 <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -115,11 +124,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Order now</button>
+        <button type="submit" class="btn btn-primary" onclick="location.href='http://127.0.0.1:8000/Form_details/'">Order now</button>
       </div>
     </div>
   </div>
 </div>
+</form>
+<div id="liveAlertPlaceholder" style="margin: 25px 20px -30px 20px;bottom:40px;position:fixed"></div>
 
 <!--   Best Sellers    -->
 <div id="content2">
@@ -129,7 +140,7 @@
     <div class="row mt-3">
     {% for Bestseller in Bestseller %}
       <div id="content2_2 mt-5" class="col-md-4">
-        <div class="content21" style="width: 380;">
+        <div class="content21" style="width: 100%;">
           <div id="b1">
             <div id="b2">
               <img src="{{ Bestseller.image.url }}" alt="" />
@@ -141,7 +152,7 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Bestseller.price }}</h6>
-            <a href="#" data-name="{{ Bestseller.name }}" data-price="{{ Bestseller.price }}" class="add-to-cart btn btn-success">Add Item</a>
+            <a href="#" data-name="{{ Bestseller.name }}" data-price="{{ Bestseller.price }}" class="add-to-cart btn btn-success" id="liveAlertBtn" name="items[]" value="{{ Bestseller.pk }}">Add Item</a>
           </div>
         </div>
       </div>
@@ -157,7 +168,7 @@
     <div class="row mt-3">
     {% for Burger in Burger %}
       <div id="content2_2 mt-5" class="col-md-4">
-        <div class="content21">
+        <div class="content21" style="width: 100%;"  name="items[]" value="{{ Bestseller.pk }}">
           <div id="b1">
             <div id="b2">
               <img src="{{ Burger.image.url }}" alt="" />
@@ -169,7 +180,7 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Burger.price }}</h6>
-            <a href="#" data-name="{{ Burger.name }}" data-price="{{ Burger.price }}" class="add-to-cart btn btn-success">Add Item</a>
+            <a href="#" data-name="{{ Burger.name }}" data-price="{{ Burger.price }}" class="add-to-cart btn btn-success" id="liveAlertBtn">Add Item</a>
           </div>
         </div>
       </div>
@@ -185,7 +196,7 @@
     <div class="row mt-3">
     {% for Pizza in Pizza %}
       <div id="content2_2 mt-5" class="col-md-4">
-        <div class="content21" style="width: 380;">
+        <div class="content21" style="width: 100%;"  name="items[]" value="{{ Bestseller.pk }}">
           <div id="b1">
             <div id="b2">
               <img src="{{ Pizza.image.url }}" alt="" />
@@ -197,7 +208,7 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Pizza.price }}</h6>
-            <a href="#" data-name="{{ Pizza.name }}" data-price="{{ Pizza.price }}" class="add-to-cart btn btn-success">Add Item</a>
+            <a href="#" data-name="{{ Pizza.name }}" data-price="{{ Pizza.price }}" class="add-to-cart btn btn-success" id="liveAlertBtn">Add Item</a>
           </div>
         </div>
       </div>
@@ -213,7 +224,7 @@
     <div class="row mt-3">
     {% for Beverages in Beverages %}
       <div id="content2_2 mt-5" class="col-md-4">
-        <div class="content21" style="width: 380;">
+        <div class="content21" style="width: 100%;"  name="items[]" value="{{ Bestseller.pk }}">
           <div id="b1">
             <div id="b2">
               <img src="{{ Beverages.image.url }}" alt="" />
@@ -225,7 +236,7 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Beverages.price }}</h6>
-            <a href="#" data-name="{{ Beverages.name }}" data-price="{{ Beverages.price }}" class="add-to-cart btn btn-success">Add Item</a>
+            <a href="#" data-name="{{ Beverages.name }}" data-price="{{ Beverages.price }}" class="add-to-cart btn btn-success" id="liveAlertBtn">Add Item</a>
           </div>
         </div>
       </div>
@@ -241,7 +252,7 @@
     <div class="row mt-3">
     {% for Dessert in Dessert %}
       <div id="content2_2 mt-5" class="col-md-4">
-        <div class="content21" style="width: 380;">
+        <div class="content21" style="width: 100%;"  name="items[]" value="{{ Bestseller.pk }}">
           <div id="b1">
             <div id="b2">
               <img src="{{ Dessert.image.url }}" alt="" />
@@ -253,7 +264,7 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Dessert.price }}</h6>
-            <a href="#" data-name="{{ Dessert.name }}" data-price="{{ Dessert.price }}" class="add-to-cart btn btn-success">Add Item</a>
+            <a href="#" data-name="{{ Dessert.name }}" data-price="{{ Dessert.price }}" class="add-to-cart btn btn-success" id="liveAlertBtn">Add Item</a>
           </div>
         </div>
       </div>
@@ -269,7 +280,7 @@
     <div class="row mt-3">
     {% for Sides in Sides %}
       <div id="content2_2 mt-5" class="col-md-4">
-        <div class="content21" style="width: 380;">
+        <div class="content21" style="width: 100%;"  name="items[]" value="{{ Bestseller.pk }}">
           <div id="b1">
             <div id="b2">
               <img src="{{ Sides.image.url }}" alt="" />
@@ -281,7 +292,7 @@
           </div>
           <div class="part32">
             <h6>₹ {{ Sides.price }}</h6>
-            <a href="#" data-name="{{ Sides.name }}" data-price="{{ Sides.price }}" class="add-to-cart btn btn-success">Add Item</a>
+            <a href="#" data-name="{{ Sides.name }}" data-price="{{ Sides.price }}" class="add-to-cart btn btn-success" id="liveAlertBtn">Add Item</a>
           </div>
         </div>
       </div>
@@ -289,6 +300,247 @@
     </div>
     </div>
 </div>
+</form>
+
+<script>
+  const toastTrigger = document.getElementById('liveToastBtn')
+  const toastLiveExample = document.getElementById('liveToast')
+
+  if (toastTrigger) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastTrigger.addEventListener('click', () => {
+      toastBootstrap.show()
+    })
+  }
+
+  const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+  const appendAlert = (message, type) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>'
+    ].join('')
+
+    alertPlaceholder.append(wrapper)
+  }
+
+  const alertTrigger = document.querySelectorAll('#liveAlertBtn')
+  if (alertTrigger) {
+    alertTrigger.forEach(curr => {
+      curr.addEventListener('click', () => {
+        appendAlert('Item added Successfully!', 'success')
+      })
+    })
+  }
+
+  var shoppingCart = (function() {
+    // =============================
+    // Private methods and propeties
+    // =============================
+    cart = [];
+    
+    // Constructor
+    function Item(name, price, count) {
+      this.name = name;
+      this.price = price;
+      this.count = count;
+    }
+    
+    // Save cart
+    function saveCart() {
+      sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+    }
+    
+      // Load cart
+    function loadCart() {
+      cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+    }
+    if (sessionStorage.getItem("shoppingCart") != null) {
+      loadCart();
+    }
+    
+  
+    // =============================
+    // Public methods and propeties
+    // =============================
+    var obj = {};
+    
+    // Add to cart
+    obj.addItemToCart = function(name, price, count) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart[item].count ++;
+          saveCart();
+          return;
+        }
+      }
+      var item = new Item(name, price, count);
+      cart.push(item);
+      saveCart();
+    }
+    // Set count from item
+    obj.setCountForItem = function(name, count) {
+      for(var i in cart) {
+        if (cart[i].name === name) {
+          cart[i].count = count;
+          break;
+        }
+      }
+    };
+    // Remove item from cart
+    obj.removeItemFromCart = function(name) {
+        for(var item in cart) {
+          if(cart[item].name === name) {
+            cart[item].count --;
+            if(cart[item].count === 0) {
+              cart.splice(item, 1);
+            }
+            break;
+          }
+      }
+      saveCart();
+    }
+  
+    // Remove all items from cart
+    obj.removeItemFromCartAll = function(name) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart.splice(item, 1);
+          break;
+        }
+      }
+      saveCart();
+    }
+  
+    // Clear cart
+    obj.clearCart = function() {
+      cart = [];
+      saveCart();
+    }
+  
+    // Count cart 
+    obj.totalCount = function() {
+      var totalCount = 0;
+      for(var item in cart) {
+        totalCount += cart[item].count;
+      }
+      return totalCount;
+    }
+  
+    // Total cart
+    obj.totalCart = function() {
+      var totalCart = 0;
+      for(var item in cart) {
+        totalCart += cart[item].price * cart[item].count;
+      }
+      return Number(totalCart.toFixed(2));
+    }
+  
+    // List cart
+    obj.listCart = function() {
+      var cartCopy = [];
+      for(i in cart) {
+        item = cart[i];
+        itemCopy = {};
+        for(p in item) {
+          itemCopy[p] = item[p];
+  
+        }
+        itemCopy.total = Number(item.price * item.count).toFixed(2);
+        cartCopy.push(itemCopy)
+      }
+      return cartCopy;
+    }
+  
+    // cart : Array
+    // Item : Object/Class
+    // addItemToCart : Function
+    // removeItemFromCart : Function
+    // removeItemFromCartAll : Function
+    // clearCart : Function
+    // countCart : Function
+    // totalCart : Function
+    // listCart : Function
+    // saveCart : Function
+    // loadCart : Function
+    return obj;
+  })();
+  
+  
+  // *****************************************
+  // Triggers / Events
+  // ***************************************** 
+  // Add item
+  $('.add-to-cart').click(function(event) {
+    event.preventDefault();
+    var name = $(this).data('name');
+    var price = Number($(this).data('price'));
+    shoppingCart.addItemToCart(name, price, 1);
+    displayCart();
+  });
+  
+  // Clear items
+  $('.clear-cart').click(function() {
+    shoppingCart.clearCart();
+    displayCart();
+  });
+  
+  
+  function displayCart() {
+    var cartArray = shoppingCart.listCart();
+    var output = "";
+    for(var i in cartArray) {
+      console.log(cartArray[i].name)
+      output += "<tr>"
+        + "<td>" + cartArray[i].name + "</td>" 
+        + "<td>(₹ " + cartArray[i].price + ")</td>"
+        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name='" + cartArray[i].name + "'>-</button>"
+        + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+        + "<button class='plus-item btn btn-primary input-group-addon' data-name='" + cartArray[i].name + "'>+</button></div></td>"
+        + "<td><button class='delete-item btn btn-danger' data-name='" + cartArray[i].name + "'>X</button></td>"
+        + " = " 
+        + "<td>₹ " + cartArray[i].total + "</td>" 
+        +  "</tr>";
+    }
+    $('.show-cart').html(output);
+    $('.total-cart').html(shoppingCart.totalCart());
+    $('.total-count').html(shoppingCart.totalCount());
+  }
+  
+  // Delete item button
+  
+  $('.show-cart').on("click", ".delete-item", function(event) {
+    var name = $(this).data('name')
+    shoppingCart.removeItemFromCartAll(name);
+    displayCart();
+  })
+  
+  
+  // -1
+  $('.show-cart').on("click", ".minus-item", function(event) {
+    var name = $(this).data('name')
+    shoppingCart.removeItemFromCart(name);
+    displayCart();
+  })
+  // +1
+  $('.show-cart').on("click", ".plus-item", function(event) {
+    var name = $(this).data('name')
+    shoppingCart.addItemToCart(name);
+    displayCart();
+  })
+  
+  // Item count input
+  $('.show-cart').on("change", ".item-count", function(event) {
+     var name = $(this).data('name');
+     var count = Number($(this).val());
+    shoppingCart.setCountForItem(name, count);
+    displayCart();
+  });
+  
+  displayCart();
+</script>
 
 {% endblock content %}
 

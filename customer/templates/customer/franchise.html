@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Scout | Franchise-Inquiry</title>
+    <link rel="icon" href="images/Logo1.png"  type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/nice-forms.css/nice-forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 12px;
+            font-family: "Montserrat", sans-serif;
+            /* font-family: "SoDo Sans Light"; */
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+            background: #eceaea;
+        }
+        /*----------  NAVBAR-START  ---------*/
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: .5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--bs-heading-color);
+        }
+        button, input, optgroup, select, textarea {
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+        #nav {
+        position: fixed;
+        top: 0;
+        background: #fff;
+        padding: 0 12px;
+        width: 100%;
+        height: 72px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 999;
+        }
+        .fg--search {
+        background: white;
+        position: relative;
+        width: 300px;
+        }
+
+        .fg--search input {
+        width: 100%;
+        padding: 10px 30px 10px 10px;
+        display: block;
+        }
+
+        .fg--search button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        align-items: center;
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px 20px;
+        z-index: 2;
+        }
+        .fg--search input:focus + button .fa-search {
+        color: rgb(101, 99, 99);
+        }
+
+        #nav_part_1 {
+        margin: 0 150px 0 15px;
+        display: flex;
+        align-items: center;
+        gap: 4vw;
+        }
+        #nav_part_1 > img {
+        height: 2.8vw;
+        }
+        #nav_part_1 > h3 {
+        font-size: 1.1vw;
+        font-weight: 400;
+        }
+        #nav_part_1 > h3:hover {
+        border-bottom: 2px solid black;
+        }
+
+        #nav_part_2 {
+        margin: 0 0 0 120px;
+        display: flex;
+        align-items: center;
+        gap: 3vw;
+        }
+        #nav_part_2 > input {
+        height: 2.2vw;
+        width: 18vw;
+        border-radius: 50px;
+        border: none;
+        font-size: 1vw;
+        box-shadow: 5px 5px 5px rgb(236, 232, 232);
+        }
+        #nav_part_2 > img {
+        height: 3vw;
+        width: 3vw;
+        }
+        /*----------  NAVBAR-END  ---------*/
+
+        /*----------  MAIN-START  ---------*/
+        .row {
+            display: flex;
+            gap: 2vw;
+        }
+        form {
+            width: 60%;
+            margin: 40px auto;
+        }
+
+        section input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        section button {
+            background-color: #4caf50;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+        /*----------  MAIN-END  ---------*/
+
+        /* ----------  FOOTER-START  --------- */
+        #footer {
+        margin-top: 4vw;
+        height: 64vh;
+        width: 100%;
+        padding: 3vw 8vw;
+        background-color: #0e382c;
+        color: white;
+        }
+        #footer1 {
+        height: 45vh;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        /* background-color: red; */
+        }
+        #footer1 .first {
+        /* padding: 2vw 1vw; */
+        height: 120px;
+        }
+        #footer1 .footer_links h2 {
+        font-size: 1vw;
+        margin-bottom: 1.7vw;
+        font-weight: 600;
+        }
+        #footer1 .footer_links h6 {
+        font-size: 0.9vw;
+        margin-bottom: 2.4vw;
+        font-weight: 300;
+        }
+
+        #footer1 .footer_links1 {
+        display: flex;
+        align-items: center;
+        /* background-color: red; */
+        }
+        #footer .footer_links1 > img {
+        width: 1.7vw;
+        margin-right: 1vw;
+        height: 1.7vw;
+        font-weight: 900;
+        }
+
+        #footer1 .footer_links2 {
+        display: flex;
+        align-items: center;
+        /* background-color: #DFC49D; */
+        flex-direction: column;
+        padding: 1vw;
+        }
+
+        .flist2 h4 {
+        margin-bottom: 15px;
+        font-size: 14px;
+        }
+        .flist2 ul {
+        /* margin-left: -25px; */
+        padding-top: 10px;
+        list-style-type: none;
+        }
+        .flist2 ul li img {
+        margin-bottom: 1px;
+        /* gap: 10px; */
+        }
+        .flist3 h4 {
+        font-size: 15px;
+        }
+        .flist3 ul {
+        /* margin-left: -25px; */
+        padding-top: 10px;
+        }
+        .flist3 ul li {
+        padding-top: 12px;
+        padding-bottom: 15px;
+        list-style: none;
+        }
+        .flist3 ul li a {
+        color: #fff;
+        padding-top: 3.5px;
+        }
+
+        #footer2 {
+        margin-top: 2vw;
+        padding: 1.3vw 0;
+        display: flex;
+        border-top: 1px solid white;
+        align-items: center;
+        justify-content: space-between;
+        /* background-color:#DFC49D ; */
+        }
+        #footer2 #contactus {
+        display: flex;
+        align-items: center;
+        gap: 2vw;
+        }
+        #footer2 #contactus h3 {
+        font-size: 0.9vw;
+        font-weight: 500;
+        }
+        .mwlove{
+            background: #fff;
+        text-align: center; 
+        padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!----------  HEADER-START  ---------->
+
+    <div class="nav_cont">
+        <div id="nav">
+            <div id="nav_part_1">
+                <img src="images/Logo1.png" alt="" style="width: 50px; height: 52px;">
+                <h3>Home</h3>
+                <h3>Offer</h3>
+                <h3>Order</h3>
+                <h3>Pay</h3>
+                <h3>Store</h3>
+            </div>
+            <div id="nav_part_2">
+                <div class="form-group fg--search">
+                    <input type="text" placeholder=" &#160;looking for something specific?">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+                <i class="fa-solid fa-user fa-2xl"></i>
+            </div>
+        </div>
+    </div>
+
+    <!---------- HEADER-END ---------->
+
+    <!---------- MAIN-START ---------->
+    <div class="f-wrapper">
+        <div style="padding:1em;font-family:Montserrat;background:#eceaea;border-radius:5px;margin:3em;margin-top: 120px;" class="container">
+            <div class="row">
+                <!-- <div class="col-xl-6 col-12"> -->
+                    <div class="sections-content" style="width: 50%;">
+                        <h1 style="font-size: 15px;font-weight: 700;color: #626161;">BE YOUR OWN BOSS</h1><br>
+                        <h2 style="font-size: 25px;color: #00754a;">JOIN THE <span style="font-size: 25px;font-weight: 700;">MEAL SCOUT </span>FAMILY</h2><br><br>
+                        <p>Are you looking for a franchise opportunity that focuses on good, quality food? If yes, then we are proud to offer pizza franchise opportunities across the states to people who have the same goals as we do: 
+                            To serve great food made from fresh ingredients in a great atmosphere.</p><br><br>
+                        <p>Investing in La Pinoz franchise gives you the independence of being a business owner along with
+                             the support of our outstanding brand and experienced network. So be a part of the bigger network and a winning brand that keeps customers coming back for delicious Pizzas just the way they want!</p><br><br>
+                        <p style="color: #00754a;"><span style="font-weight: 700;">For Franchise Query:</span><br/> <strong>9888361510</strong><br><strong>8699997083</strong></p><br>
+                        <p>Joining our pizza franchise family lets you benefit from the amazing brand we have created and gives you the opportunity to gain the independence of being your own boss.</p>
+                    </div>
+                <!-- </div> -->
+                <section style="width: 50%;margin-left: 10px;">
+                    <h2 style="margin-left: 190px;font-size: 25px;font-weight: 600;">Share your details</h2>
+
+                    <form method="post">
+                    <label for="fname">Name</label>
+                    <input type="text" id="fname" name="fname" required />
+
+                    <label for="lname">City</label>
+                    <input type="text" id="lname" name="lname" required />
+
+                    <label for="tel">Contact No</label>
+                    <input type="tel" id="tel" name="tel" required />
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Submit</button>
+                    </form>
+                  </section>	
+            </div>
+        </div>
+    </div>
+        
+    <!---------- MAIN-END ---------->
+
+    <!----------  FOOTER-START  ---------->
+
+    <div id="footer">
+        <div id="footer1">
+            <img class="first" src="images/Logo1.png" alt="">
+            <div class="footer_links">
+                <h2>Useful Links</h2>
+                <h6>Refund Policy</h6>
+                <h6>Terms & Conditions</h6>
+                <h6>Privacy Policy</h6>
+                <h6>Promo Codes</h6>
+                <h6>FAQs</h6>
+            </div>
+            <div class="flist2">
+                <h4>Payment Methods</h4>
+                <ul class="flist2-inner">
+                  <li><img src="images/cash-svg.svg" width="50" height="30" alt="cash icon">
+                      <img src="images/mastercard-svg.svg" width="50" height="30" alt="Master Card">
+                      <img src="images/gpay-svg.svg" width="50" height="30" alt="Google Pay">
+                  </li>
+                  <li><img src="images/paytm-svg.svg" width="50" height="30" alt="Paytm">                    
+                      <img src="images/visa-svg.svg" width="50" height="30" alt="Visa">
+                      <img src="images/upi-icon.svg" width="50" height="30" alt="UPI">
+                  </li>
+                </ul>
+            </div>
+            <div class="flist3">
+                <h4>Contact Us</h4>
+                <ul class="flist3-inner">
+                  <li><span>Customer Support </span>
+                    <a href="mailto:support@mealscout.in" style="display: block;text-decoration: underline;">support@mealscout.in</a>
+                  </li>
+                  <li><span>Franchise Enquiry </span>
+                    <a href="mailto:info@mealscout.in" style="display: block;text-decoration: underline;">info@mealscout.in</a>										
+                  </li>
+                </ul>
+            </div>
+            
+            <div class="footer_links">
+                <h2>Social Media</h2>
+                <div class="footer_links1">
+                    <img  src="https://img.icons8.com/ios/50/FFFFFF/instagram-new--v1.png" alt="instagram-new--v1"/>
+                    <img  src="https://img.icons8.com/ios-filled/50/FFFFFF/facebook-f.png" alt="facebook-f"/>
+                    <img  src="https://img.icons8.com/glyph-neue/64/FFFFFF/twitter.png" alt="twitter"/>
+                </div>
+            </div>
+        </div>
+        <div id="footer2">
+            <div id="contactus">
+                <h3>Web Accessibility</h3>
+                <h3>|</h3>
+                <h3>Privacy statement</h3>
+                <h3>|</h3>
+                <h3>Terms of Use </h3>
+                <h3>|</h3>
+                <h3>Contact Us</h3>
+            </div>
+            <h6>&copy; 2024 MealScout  |  All rights reserved</h6>
+            
+        </div>
+    </div>
+    <h1 class="mwlove"><b>Made with ❤️ in India <img src="images/india-flag-icon.webp" style="margin-left: 4px; height: 12px;"></b></h1>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+{% load static %}
+<style>
+  .dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+<!----------  HEADER-START  ---------->
+<div class="nav_cont">
+  <div id="nav">
+    <div id="nav_part_1">
+      <img src="{% static 'images/Logo1.png' %}" alt="" style="width: 50px; height: 52px"/>
+      <nav class="nav">
+        <ul class="nav_list">
+          <li class="nav-item" id="home">
+            <a href="/" class="active">Home</a>
+          </li>
+          <li class="nav-item" id="about">
+            <a href="#">Offer</a>
+          </li>
+          <li class="nav-item" id="services">
+            <a href="/order">Order</a>
+          </li>
+          <li class="nav-item" id="contact">
+            <a href="#">Pay</a>
+          </li>
+          <li class="nav-item" id="contact">
+            <a href="#">Store</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="nav_part_2">
+      <div class="form-group fg--search">
+        <input
+          type="text"
+          placeholder=" &#160;looking for something specific?"
+        />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="dropdown center">
+        <button id="dropbtn"> {% comment "" %} onclick="toggle()" {% endcomment %}
+          <i class="fa-solid fa-user fa-2xl"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/logout">Logout</a>
+          <a href="/myorder">My Orders</a>
+          <a href="/myprofile">My Profile</a>
+        </div>
+      </div>
+    </div>
+
+      {% comment %} <!-- LOGIN-FORM START -->
+      <form action="#">
+        <div class="popup">
+          <div class="close-btn" onclick="toggle()">&times;</div>
+          <div class="form">
+            <h2>Login</h2>
+            <div class="form-element">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                placeholder="Enter email"
+                pattern=".+@gmail\.com"
+                required
+              />
+            </div>
+            <div class="form-element">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                minlength="8"
+                maxlength="12"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+            <div class="form-element">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+            </div>
+            <div class="form-element">
+              <button>Sign in</button>
+            </div>
+            <div class="form-element">
+              <a href="#">Register</a>
+            </div>
+            <div class="form-element">
+              <a href="#">Forgot password?</a>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- LOGIN-FORM END --> {% endcomment %}
+    </div>
+  </div>
+  home offer order pay store
+</div>
+
+<!---------- HEADER-END ---------->
